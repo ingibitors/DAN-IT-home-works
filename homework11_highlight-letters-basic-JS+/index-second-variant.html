@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework-buttons</title>
+    <style>
+        .btn-wrapper {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 20px;
+            min-width: 120px;
+            padding: 7px;
+            color: #fff;
+            font-size: 14px;
+            background-color: #000000;
+            cursor: pointer;
+        }
+
+        .keybtn {
+            border: none;
+            border-radius: 20px;
+            min-width: 120px;
+            padding: 7px;
+            color: #fff;
+            font-size: 14px;
+            background-color: blue;
+            cursor: pointer;
+        }
+
+        .btn:active,
+        .btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Почему для работы с input не рекомендуется использовать события клавиатуры?</h1>
+<ol>
+    <li>текст может быть вставлен мышкой, при помощи правого клика и меню, без нажатия клавиши</li>
+    <li>мобильные устройства не генерируют keypress/keydown</li>
+</ol>
+<div class="btn-wrapper">
+    <button class="btn" data-btn="0">Enter</button>
+    <button class="btn" data-btn="1">S</button>
+    <button class="btn" data-btn="2">E</button>
+    <button class="btn" data-btn="3">O</button>
+    <button class="btn" data-btn="4">N</button>
+    <button class="btn" data-btn="5">L</button>
+    <button class="btn" data-btn="6">Z</button>
+</div>
+
+<script>
+    //Использовано:
+    //1. addeventlistener через event. С ивента можно вытянуть много информации
+    //2. querySelectorAll- работает с классом, с элементами Button не получилось
+    //3. ForEach для проверки всех єлемнтов массива кнопок
+    //4.Работа с добавлением\удалением класса элементов
+    //5.Если раскрыть элементы то можно найти очень много значений, по которым можно что то делать
+    //6.работа с атрибутами элементов
+
+
+
+    //console.log("1.находим все кнопки в документе и вставляем в массив через querySelectorAll")
+    const buttons = document.querySelectorAll(".btn") //находим все кнопки в документе и вствляем в массив
+    /*console.log("список кнопок в массиве объектов следующий: ")
+    console.log(buttons)
+    console.log("2.вешаем слушателя по нажатию клавиш")*/
+
+    //вешаем слушателя по нажатию клавиш
+    document.body.addEventListener('keydown', function (event) {
+        //для каждого элемента btn массива buttons
+
+        console.log(" EVENT, EVENT, EVENT, EVENT ")
+        console.log(" Итак сработал event: ")
+        console.log(event)
+        console.log("/////")
+
+        buttons.forEach(btn => {
+            const databtn = btn.getAttribute("data-btn")
+            console.log("после сработки слушателя для каждого элемента массива всех кнопок получаем название атрибута, которое = " + databtn)
+
+            //функция сверки
+
+            //добавление через spread оператор
+
+            function checkingButton(...array) {
+                //для каждого кода кнопки переданного в array сверяем с кодом нажатия(event.code)
+                //если код совпадает выполняем:
+                // так как индекс массива значений, которые мы должны сверить совпадает с атрибутом кнопки то сверяем индекс с атрибутом и делаем:
+                //если атрибут кнопки btn.classList включает keybtn то снимаем атрибут
+                //если же не включает- то добавляем атрибут
+                array.forEach((codeExistingButtonsOnPage, index) => {
+                    if (codeExistingButtonsOnPage === event.code) {
+                        console.log("Нажали кнопку " + event.code + " и event.code это показал")
+                        console.log("///////")
+                        //так как databtn не число- приводим его к числу
+                        if (index === +databtn) {
+                            console.log("сработало условие index = " + index + " databtn= " + databtn)
+                            //дальше прорработка включения отключения цвета кнопки:
+                            if (btn.classList.contains("keybtn")) {
+                                console.log("btn.classList= " + btn.classList + " и нам нужно снять клас classList removekeybtn")
+                                btn.classList.remove("keybtn")
+                            } else {
+                                console.log("btn.classList НЕ= " + btn.classList + " и нам поставить клас classList= removekeybtn")
+                                btn.classList.add("keybtn")
+                            }
+                        } else {
+                            btn.classList.remove("keybtn")
+                            console.log(" Сработало условие, что  index " + index + " не != " + " databtn,которое " + databtn + "и снимаем класс")
+                        }
+                    }
+                })
+            }
+
+            //вызываем функцию сверки клавиш
+            console.log("начало работы функции проверки ")
+            console.log("............. ")
+            checkingButton("Enter", "KeyS", "KeyE", "KeyO", "KeyN", "KeyL", "KeyZ")
+        })
+    })
+</script>
+
+</body>
+</html>

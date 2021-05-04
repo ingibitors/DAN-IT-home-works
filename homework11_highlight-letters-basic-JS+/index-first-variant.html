@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework-buttons</title>
+    <style>
+        .btn-wrapper {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 20px;
+            min-width: 120px;
+            padding: 7px;
+            color: #fff;
+            font-size: 14px;
+            background-color: #000000;
+            cursor: pointer;
+        }
+
+        .keybtn {
+            border: none;
+            border-radius: 20px;
+            min-width: 120px;
+            padding: 7px;
+            color: #fff;
+            font-size: 14px;
+            background-color: blue;
+            cursor: pointer;
+        }
+
+        .btn:active,
+        .btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Почему для работы с input не рекомендуется использовать события клавиатуры?</h1>
+<ol>
+    <li>текст может быть вставлен мышкой, при помощи правого клика и меню, без нажатия клавиши</li>
+    <li>мобильные устройства не генерируют keypress/keydown</li>
+</ol>
+<h2>не забудьте нажимать кнопки в таком же регистре </h2>
+<div class="btn-wrapper">
+    <button class="btn" >Enter</button>
+    <button class="btn" >S</button>
+    <button class="btn" >E</button>
+    <button class="btn" >O</button>
+    <button class="btn" >N</button>
+    <button class="btn" >L</button>
+    <button class="btn" >Z</button>
+</div>
+<script>
+    //Использовано:
+    //1. addeventlistener через event. С ивента можно вытянуть много информации
+    //2. querySelectorAll- работает с классом, с элементами Button не получилось
+    //3. ForEach для проверки всех єлемнтов массива кнопок
+    //4.Пробовал через includes но все равно нужно будет находить кнопки через forEach которые нужно сделать синими
+    //5.Работа с добавлением\удалением класса элементов
+    //6.Если раскрыть элемнт то можно найти очень много значений, по которым можно что то делать
+
+
+
+
+      /*  console.log("1.находим все кнопки в документе и вставляем в массив через querySelectorAll")*/
+    const buttons = document.querySelectorAll(".btn") //находим все кнопки в документе и вствляем в массив
+    /*console.log("список кнопок в массиве объектов следующий: ")
+    console.log(buttons)
+    console.log("2.вешаем слушателя по нажатию клавиш")*/
+
+    //вешаем слушателя по нажатию клавиш
+      document.body.addEventListener('keydown', function (event) {
+        buttons.forEach((button,index)=>{
+            console.log(event.key+" "+button.innerText)
+            console.log('/////////////')
+            if(button.innerText===event.key){
+                console.log('кнопка'+event.key+' есть')
+                if(button.classList.contains("keybtn")){
+                    button.classList.remove("keybtn")
+                }else{
+                    button.classList.add("keybtn")
+                }
+            }else{
+                console.log('кнопка '+event.key+' не совпадает с '+button.innerText)
+            }
+        })
+    })
+</script>
+</body>
+</html>

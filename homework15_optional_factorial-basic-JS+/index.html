@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="file-content md">
+    <h3 data-sourcepos="1:1-1:87" dir="auto">
+        <a id="user-content-данное-задание-не-обязательно-для-выполнения" class="anchor" href="#%D0%B4%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5-%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE-%D0%B4%D0%BB%D1%8F-%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F" aria-hidden="true"></a>Данное задание не обязательно для выполнения</h3>
+    <h2 data-sourcepos="3:1-3:42" dir="auto">
+        <a id="user-content-теоретический-вопрос" class="anchor" href="#%D1%82%D0%B5%D0%BE%D1%80%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81" aria-hidden="true"></a>Теоретический вопрос</h2>
+    <ol data-sourcepos="5:1-6:0" dir="auto">
+        <li data-sourcepos="5:1-6:0">Напишите как вы понимаете рекурсию. Для чего она используется на практике?</li>
+    </ol>
+    <h2 data-sourcepos="7:1-7:17" dir="auto">
+        <a id="user-content-задание" class="anchor" href="#%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5" aria-hidden="true"></a>Задание</h2>
+    <p data-sourcepos="9:1-9:290" dir="auto">Реализовать функцию подсчета факториала числа. Задача должна быть реализована на языке javascript, без использования фреймворков и сторонник библиотек (типа Jquery).</p>
+    <h4 data-sourcepos="11:1-11:49" dir="auto">
+        <a id="user-content-технические-требования" class="anchor" href="#%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" aria-hidden="true"></a>Технические требования:</h4>
+    <ul data-sourcepos="12:1-15:0" dir="auto">
+        <li data-sourcepos="12:1-12:147">Считать с помощью модального окна браузера число, которое введет пользователь.</li>
+        <li data-sourcepos="13:1-13:176">С помощью функции посчитать факториал числа, которое ввел пользователь, и вывести его на экран.</li>
+        <li data-sourcepos="14:1-15:0">Использовать синтаксис ES6 для работы с перемеными и функциями.</li>
+    </ul>
+    <h4 data-sourcepos="16:1-16:91" dir="auto">
+        <a id="user-content-необязательное-задание-продвинутой-сложности" class="anchor" href="#%D0%BD%D0%B5%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%83%D1%82%D0%BE%D0%B9-%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8" aria-hidden="true"></a>Необязательное задание продвинутой сложности:</h4>
+    <ul data-sourcepos="17:1-18:0" dir="auto">
+        <li data-sourcepos="17:1-18:0">После ввода данных добавить проверку их корректности. Если пользователь не ввел число, либо при вводе указал не число, - спросить число заново (при этом значением по умолчанию для него должна быть введенная ранее информация).</li>
+    </ul>
+    <h4 data-sourcepos="19:1-19:26" dir="auto">
+        <a id="user-content-литература" class="anchor" href="#%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0" aria-hidden="true"></a>Литература:</h4>
+    <ul data-sourcepos="20:1-20:69" dir="auto">
+        <li data-sourcepos="20:1-20:69"><a href="https://learn.javascript.ru/recursion" rel="nofollow noreferrer noopener" target="_blank">Рекурсия, стек</a></li>
+        <li ><a href="https://gitlab.com/dan-it/groups/pe27/-/tree/master/basic-javascript/homework/homework15_optional_factorial" rel="nofollow noreferrer noopener" target="_blank">Задание на GIT</a></li>
+    </ul>
+</div>
+
+<h1>Рекурсия- это функция, которая вызывет сама себя. Нужна если с помощью такой схемы повторных вызовов можно решить задачу. т.е. схема проработки не меняется а меняется только значение аргументов </h1>
+<script>
+    let inputValue = +prompt("Введите число")
+    while (isNaN(inputValue) || inputValue === "") {
+        inputValue = +prompt("Введите число")
+    }
+    console.log(inputValue)
+
+    function getFactorial(inputNumber) {
+        if (inputNumber <= 1) {
+            return 1
+        } else {
+            return inputNumber * getFactorial(inputNumber - 1)
+        }
+
+    }
+
+    alert("Факториал числа "+inputValue+" составляет "+getFactorial(inputValue))
+
+</script>
+</body>
+</html>
