@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+        }
+
+        .circle {
+            border-radius: 50%;
+            align-content: center;
+            font-size: 20px;
+            border: 3px solid green;
+            text-align: center;
+        }
+
+        /* стили для случая с колонками
+        .common{
+             border-radius: 0%;
+             border: 0px;
+         }
+         .row{
+             border-radius: 0%;
+             border: 0px;
+         }*/
+        /* div{
+             display: inline-block;
+             border-radius: 50%;
+             align-content: center;
+             font-size: 20px;
+             border: 3px solid green;
+             text-align: center;
+
+         }*/
+    </style>
+</head>
+<!--Данное задание не обязательно для выполнения
+
+Задание
+Нарисовать на странице круг используя параметры, которые введет пользователь. Задача должна быть реализована на языке javascript, без использования фреймворков и сторонник библиотек (типа Jquery).
+
+Технические требования:
+
+При загрузке страницы - показать на ней кнопку с текстом "Нарисовать круг".
+Данная кнопка должна являться единственным контентом в теле HTML документа, весь остальной контент должен быть создан и добавлен на страницу с помощью Javascript.
+При нажатии на кнопку "Нарисовать круг" показывать одно поле ввода - диаметр круга.
+При нажатии на кнопку "Нарисовать" создать на странице 100 кругов (10*10) случайного цвета.
+При клике на конкретный круг - этот круг должен исчезать, при этом пустое место заполняться, то есть все остальные круги сдвигаются влево.
+У вас может возникнуть желание поставить обработчик события на каждый круг для его исчезновения. Это неэффективно, так делать не нужно.
+На всю страницу должен быть только один обработчик событий, который будет это делать.
+
+почитать:
+https://learn.javascript.ru/searching-elements-dom "Поиск DOM элементов"
+https://learn.javascript.ru/modifying-document "Добавление и удаление узлов"
+https://learn.javascript.ru/introduction-browser-events "Введение в браузерные события"
+https://learn.javascript.ru/event-bubbling  "Всплытие и перехват событий"
+-->
+<body>
+<button id="drawCircle">Нарисовать круг</button>
+<script>
+    const buttonCreateInput = document.getElementById("drawCircle")
+    buttonCreateInput.addEventListener("click", createDiv)
+
+    //функция создания дивака и его свойств
+    function createDiv() {
+        const divForForm = document.createElement("div")
+        divForForm.id = "form"
+        document.body.append(divForForm)
+        const buttonDrawCircle = document.getElementById("drawCircle")
+        console.log(buttonDrawCircle)
+        divForForm.appendChild(buttonDrawCircle.cloneNode(true))
+        buttonDrawCircle.remove()
+        createInput()
+    }
+
+    function createInput() {
+        const formDiv = document.getElementById("form")
+        const input = document.createElement("input")
+        const div = document.createElement("div")
+        div.className = "input"
+        const form = document.createElement("form")
+        const buttonDraw = document.createElement("button")
+        buttonDraw.id="inputCircleDiameter"
+        buttonDraw.innerText = "Нарисовать"
+        form.id = "formId"
+        formDiv.append(div)
+        div.append(form)
+        form.append(input)
+        form.append(buttonDraw)
+        buttonDraw.innerText = "Нарисовать"
+        //снять слушателя
+        /*form.addEventListener('submit', drawCircle(event))*/
+        /*buttonCreateInput.removeEventListener("click", createInput)*/
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+            drawingCircleGrid(input.value)
+            buttonDraw.setAttribute("disabled","true")//добавляем атрибут к кнопке что бы она бы
+        })
+    }
+
+    function drawingCircleGrid(diametr) {
+
+        const divforCircle = document.createElement("div")
+
+        divforCircle.className = "wrapper"
+        document.body.append(divforCircle)
+
+        for (let i = 1; i <= 100; i++) {
+            const cell = document.createElement("div")
+            cell.className = "circle"
+            cell.style.width = `${diametr}px`
+            cell.style.height = `${diametr}px`
+            let randomColor = Math.floor(Math.random() * 16777215).toString(16)
+            cell.style.background = "#" + randomColor
+            cell.innerText = `${i}`
+            cell.style.marginTop = "100px"
+            divforCircle.append(cell)
+        }
+
+        divforCircle.addEventListener("click",function (event) {
+            event.preventDefault()
+            const divForDelete=event.target
+            console.log(divForDelete)
+            console.log(event.target)
+            divForDelete.remove()
+        },{capture: true})
+    }
+    //всплытие перехват js- нужно прочитать
+
+    //добавление кругов через колонки- как оказалось grid проще
+    /*function drawingCircle(diametr) {
+        const divforCircle = document.createElement("div")
+        divforCircle.className="common"
+        document.body.append(divforCircle)
+        for (let i=1; i<=10; i++){
+            const row=document.createElement("div")
+            row.className="row"
+            row.style.width=`${diametr}px`
+            row.style.height=`${diametr}px`
+            row.style.background="yellow"
+            row.innerText="row "+`${i}`
+            for (let j=1; j<=10; j++){
+                const cell=document.createElement("div")
+                cell.style.width=`${diametr}px`
+                cell.style.height=`${diametr}px`
+                let randomColor=Math.floor(Math.random()*16777215).toString(16)
+                cell.style.background="#"+randomColor
+                cell.innerText=`${j}`
+                cell.style.marginTop="100px"
+                row.append(cell)
+            }
+            divforCircle.append(row)
+        }
+    }
+drawingCircle(150)*/
+</script>
+</body>
+</html>
