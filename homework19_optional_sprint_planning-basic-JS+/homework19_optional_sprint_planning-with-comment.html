@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="file-content md">
+    <h3 data-sourcepos="1:1-1:87" dir="auto">
+        <a id="user-content-данное-задание-не-обязательно-для-выполнения" class="anchor" href="#%D0%B4%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5-%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE-%D0%B4%D0%BB%D1%8F-%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F" aria-hidden="true"></a>Данное задание не обязательно для выполнения</h3>
+    <h2 data-sourcepos="3:1-3:17" dir="auto">
+        <a id="user-content-задание" class="anchor" href="#%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5" aria-hidden="true"></a>Задание</h2>
+    <p data-sourcepos="5:1-5:419" dir="auto">Реализовать функцию, которая позволит оценить, успеет ли команда разработчиков сдать проект до наступления дедлайна. Задача должна быть реализована на языке javascript, без использования фреймворков и сторонник библиотек (типа Jquery).</p>
+    <h4 data-sourcepos="7:1-7:49" dir="auto">
+        <a id="user-content-технические-требования" class="anchor" href="#%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" aria-hidden="true"></a>Технические требования:</h4>
+    <ul data-sourcepos="8:1-14:0" dir="auto">
+        <li data-sourcepos="8:1-11:59">Функция на вход принимает три параметра:
+            <ul data-sourcepos="9:3-11:59">
+                <li data-sourcepos="9:3-9:529">массив из чисел, который представляет скорость работы разных членов команды. Количество элементов в массиве означает количество человек в команде. Каждый элемент означает сколько стори поинтов (условная оценка сложности выполнения задачи) может выполнить данный разработчик за 1 день.</li>
+                <li data-sourcepos="10:3-10:500">массив из чисел, который представляет собой беклог (список всех задач, которые необходимо выполнить). Количество элементов в массиве означает количество задач в беклоге. Каждое число в массиве означает количество стори поинтов, необходимых для выполнения данной задачи.</li>
+                <li data-sourcepos="11:3-11:59">дата дедлайна (объект типа Date).</li>
+            </ul>
+        </li>
+        <li data-sourcepos="12:1-12:860">После выполнения, функция должна посчитать, успеет ли команда разработчиков выполнить все задачи из беклога до наступления дедлайна (работа ведется начиная с сегодняшнего дня). Если да, вывести на экран сообщение: <code>Все задачи будут успешно выполнены за ? дней до наступления дедлайна!</code>. Подставить нужное число дней в текст. Если нет, вывести сообщение <code>Команде разработчиков придется потратить дополнительно ? часов после дедлайна, чтобы выполнить все задачи в беклоге</code>
+        </li>
+        <li data-sourcepos="13:1-14:0">Работа идет по 8 часов в день по будним дням</li>
+    </ul>
+    <h4 data-sourcepos="15:1-15:26" dir="auto">
+        <a id="user-content-литература" class="anchor" href="#%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0" aria-hidden="true"></a>Литература:</h4>
+    <ul data-sourcepos="16:1-16:64" dir="auto">
+        <li data-sourcepos="16:1-16:64"><a href="https://learn.javascript.ru/datetime" rel="nofollow noreferrer noopener" target="_blank">Дата и время</a></li>
+    </ul>
+</div>
+
+<script>
+    //массив из чисел сторипоинтов задачи за 8 часов работы каждого члена комманды
+    const speed = [10, 4, 2, 5, 8]
+    console.log("массив из чисел сторипоинтов задачи за 8 часов работы каждого члена комманды:")
+    console.log(speed)
+    // перечень задач в проекте
+    const tasksName = ["button", "form", "backend", "calculation", "css"]
+    console.log("перечень задач в проекте:")
+    console.log( tasksName)
+    //массив из чисел сторипоинтов каждой задачи(сколько сторипоинтов в задаче), который представляет собой беклог (список всех задач, которые необходимо выполнить в сторипоинтах).
+    const tasks = [50, 20, 10, 40, 30]
+    console.log("массив из чисел сторипоинтов каждой задачи:")
+    console.log(tasks)
+    //дата дедлайна
+    const deadline = new Date("May 19, 2021")
+
+    //сегодняшняя дата
+    const today = new Date()
+    console.log("Начинаем мы работу "+ today)
+    console.log("Deadline у нас "+deadline)
+
+    //функция подсчета рабочих дней между 2 датами,которая не учитывет праздничные дни и
+    function getBusinessDatesCount(startDate, endDate) {
+        let count = 0;//счетчик дней
+        let curDate = startDate;
+        while (curDate /*startDate*/ <= endDate) {
+           /* console.log("count при "+curDate+" = "+ count)*/
+            /*console.log('curDate in while= ' + curDate)*/
+            let dayOfWeek = curDate.getDay();// возвращает день недели
+
+            //если день недели не субота и воскресенье то добавить в счетчик
+            if (!((dayOfWeek == 6) || (dayOfWeek == 0)))
+                count++;
+            //описание методов set, getDate:
+            //Метод setDate() встановлює день об'єкта Date відносно початку наразі встановленого місяця.
+            // Тобто curDate.setDate(10) вказує, що за день буде після 10 днів від початку місяця curDate
+            //Метод getDate() повертає день місяця для вказаної дати згідно з місцевим часом.
+
+            //Наприклад:
+            //const birthday = new Date('August 19, 1975 23:15:30');
+            //const date1 = birthday.getDate();
+            //console.log(date1);
+            // expected output: 19
+           /* console.log('curDate in if= ' + curDate)
+            console.log('день місяця від початку місяця дати в форматі curDate.setDate(curDate.getDate()= ' + curDate.setDate(curDate.getDate() + 1))*/
+            curDate.setDate(curDate.getDate() + 1);
+        }
+        return count;
+    }
+
+    /*console.log("Разница между датой "+`${curDate}`+" и  " + endDate + ' состоит ' + count + ' рабочих дней')*/
+
+    // берет сегодняшний день недели и возвращает количество рабочих дней, которых осталось до конца рабочей недели
+   
+    function project(speedArray, tasksArray, object) {
+        //1. Продуктивность всей комманды за один день
+        //Метод reduce() применяет функцию reducer к каждому элементу массива (слева-направо), возвращая одно результирующее значение
+        let sum8hourDay = speedArray.reduce(function (a, b) {
+            return a + b;
+        });
+        console.log("команда может выполнить за 8 часовой день: " + sum8hourDay + " сторипоинтов")
+
+        //2. Общее количество сторипоинтов:
+
+        let sumTasks = tasksArray.reduce(function (a, b) {
+            return a + b;
+        });
+        console.log("Общее количество сторипоинтов= "+sumTasks)
+
+        // 3. Количество дней(8 часовых) необходимое на выполнение проекта
+
+        let daysNeededForProject = Math.ceil(sumTasks / sum8hourDay)
+        // общее кол-во времени на выполнение задачи
+        /*const commonTime=*/
+        console.log("количество дней необходимых для команды, что бы выполнить проект объемом "+sumTasks+ " cторипоинтов с учетом округления к большему целому числу= "+sumTasks+"/"+sum8hourDay+" = " + daysNeededForProject + " рабочих дней")
+
+        //4. узнать успеваем ли мы к дедлайну. Для этого нам еще нужно исключить выходные дни
+
+        let workingDaysToDeadline=getBusinessDatesCount(new Date(), deadline)
+        console.log("Рабочих дней до дедлайна у нас:  "+workingDaysToDeadline)
+
+        //5. получения даты, к которой будет готов проект
+
+        //объект с функциями в котором все считается
+        const calculator = {
+            workDaysAdded: 0,
+            ukrHolidays: ['2021-01-01','2021-01-07','2021-03-08','2021-05-03','2021-05-04','2021-05-10','2021-06-21','2021-12-27'],
+            startDate: null,
+            curDate: null,//дата к которой будут добавлять дни
+
+            addWorkDay: function() {
+                this.curDate.setDate(this.curDate.getDate() + 1);
+                if(this.ukrHolidays.indexOf(this.formatDate(this.curDate)) === -1 && this.curDate.getDay() !== 0 && this.curDate.getDay() !== 6) {
+                    this.workDaysAdded++;
+                    /*console.log(this.workDaysAdded)*/
+                }
+            },
+//функция преобразовывает дату в формат ISO, т.е. есть Sat May 08 2021 08:24:46 GMT+0300 (Eastern European Summer Time) и мы ее преобразовываем в формат(YYYY-MM-DDTHH:mm:ss.sssZ) 2021-05-08T08:24:46
+            formatDate: function(date) {
+                let day = date.getDate()
+                let month = date.getMonth() + 1
+
+                month = month > 9 ? month : '0' + month;
+                day = day > 9 ? day : '0' + day;
+                return date.getFullYear() + '-' + month + '-' + day;
+            },
+
+//функция принимает количество рабочих дней и дату к которой нужно добавить эти дни
+            getNewWorkDay: function(daysToAdd,day) {
+
+                this.curDate = new Date(day);
+               /* console.log("this.curDate"+this.curDate)*/
+                this.workDaysAdded = 0;
+
+                while(this.workDaysAdded < daysToAdd) {
+                    this.addWorkDay();
+                    /*console.log("this.workDaysAdded= "+this.workDaysAdded)*/
+                }
+                return this.curDate
+            }
+
+        }
+
+        let finishedDay = calculator.getNewWorkDay(daysNeededForProject,new Date());
+        console.log("День окончания проекта = сегодняшний день "+new Date()+" кол-во рабочих дней необходимых на окнончание проекта= "+daysNeededForProject+ " finishedDay= "+ finishedDay)
+
+       /* console.log("но дедлайн у нас = "+ deadline)*/
+        let daysFromDeadlineToFinishedDay=Math.round((deadline-finishedDay)/ (60 * 60 * 24 * 1000))
+        /*console.log("Количество календарных дней от дедлайна до дня окончания = "+daysFromDeadlineToFinishedDay)*/
+
+        if (daysFromDeadlineToFinishedDay>0){
+            console.log('Все задачи будут успешно выполнены за ' + `${daysFromDeadlineToFinishedDay}` + ' календарных дней до наступления дедлайна')
+
+        }else{
+            console.log("finishedDay = "+finishedDay+" как оно считает?")
+            /*console.log("Команде разработчиков придется потратить дополнительно  "+`${((getBusinessDatesCount(deadline,finishedDay)))*8}` + " часов после дедлайна, чтобы выполнить все задачи в беклоге")*/
+            console.log("Команде разработчиков придется потратить дополнительно  "+`${(daysNeededForProject-workingDaysToDeadline)*8}` + " часов после дедлайна, чтобы выполнить все задачи в беклоге")
+        }
+
+
+        /*       let daysToDedline = Math.round((deadline - today) / 1000 / 60 / 60 / 24)
+        console.log(daysToDedline)
+//количество дней до конца рабочей недели
+        const daysToEnd = dayOfWeek()
+        console.log("daysToEnd= " + daysToEnd)
+        let daysMinusWeekend = daysToDedline - daysToEnd
+        if (daysMinusWeekend >= daysNeededForProject) {
+            console.log('Все задачи будут успешно выполнены за ' + `${daysMinusWeekend}` + ' дней до наступления дедлайна')
+        } else {
+            console.log(`${daysMinusWeekend}` + " дней к сожалению не достаточно")
+        }*/
+
+        //5.
+    }
+
+    project(speed, tasks, deadline)
+    //функция должна посчитать, успеет ли команда разработчиков выполнить все задачи из беклога до наступления дедлайна (работа ведется начиная с сегодняшнего дня).
+
+</script>
+</body>
+</html>

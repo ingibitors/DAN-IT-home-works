@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const calculator = {
+        workDaysAdded: 0,// рабочие дни, которые нужно добавлять
+        ukrHolidays: ['2021-01-01', '2021-01-07', '2021-03-08', '2021-05-03', '2021-05-04', '2021-05-10', '2021-06-21', '2021-06-28', '2021-08-24', '2021-10-14', '2021-12-27'],
+        startDate: null,
+        curDate: null,//дата к которой будут добавлять дни
+        workdaysBetweenDates: 0,
+
+
+        addWorkDay: function () {
+            this.curDate.setDate(this.curDate.getDate() + 1)
+
+            if (this.ukrHolidays.indexOf(this.formatDate(this.curDate)) === -1 && this.curDate.getDay() !== 0 && this.curDate.getDay() !== 6) {
+                this.workDaysAdded++;
+                console.log(this.workDaysAdded)
+            }
+        },
+        //функция преобразовывает дату в формат ISO, т.е. есть Sat May 08 2021 08:24:46 GMT+0300 (Eastern European Summer Time) и мы ее преобразовываем в формат(YYYY-MM-DDTHH:mm:ss.sssZ) 2021-05-08T08:24:46
+        formatDate: function (date) {
+            let day = date.getDate()
+            let month = date.getMonth() + 1
+
+            month = month > 9 ? month : '0' + month;
+            day = day > 9 ? day : '0' + day;
+            return date.getFullYear() + '-' + month + '-' + day;
+        },
+//функция принимает количество рабочих дней и дату к которой нужно добавить эти дни
+        getNewWorkDay: function (daysToAdd, day) {
+            this.startDate = new Date()
+            this.curDate = new Date(day)
+            console.log("new Date(day)= " + new Date(day))
+            this.workDaysAdded = 0
+
+            while (this.workDaysAdded < daysToAdd) {
+                this.addWorkDay();
+                /*console.log(this.workDaysAdded)*/
+            }
+            return this.curDate;
+        },
+        getWorkingDaysBetweenDates: function (startDay, finishedDay) {
+            /* this.startDate = this.formatDate(this.curDate)
+             this.curDate = this.formatDate(this.curDate)*/
+
+        }
+    }
+
+    let todayDay = new Date()
+    let newWorkDay7 = calculator.getNewWorkDay(7, todayDay)
+    let newWorkDay9 = calculator.getNewWorkDay(9, todayDay)
+    let newWorkDay14 = calculator.getNewWorkDay(14, todayDay)
+    let daysBetweenDates = calculator.getWorkingDaysBetweenDates('2021-05-28', '2021-05-31')
+
+    console.log(todayDay + " + 7 рабочих дней = " + newWorkDay7)
+    console.log(todayDay + " + 9 рабочих дней = " + newWorkDay9)
+    console.log(todayDay + " + 14 рабочих дней = " + newWorkDay14)
+
+    /*console.log(daysBetweenDates)*/
+
+</script>
+</body>
+</html>
