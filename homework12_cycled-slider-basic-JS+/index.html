@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Banners</title>
+    <style>
+        .image-to-show {
+            width: 400px;
+            height: 400px;
+        }
+
+        .images-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div class="file-content md">
+    <p data-sourcepos="1:1-1:40" dir="auto">#Теоретический вопрос</p>
+    <ol data-sourcepos="3:1-6:0" dir="auto">
+        <li data-sourcepos="3:1-3:125">Опишите своими словами разницу между функциями <code>setTimeout()</code> и <code>setInterval()</code>.</li>
+        <p><b>setTimeout() запускает выполнение функции с задержкой временной задержкой, а setInterval() запускает выполнение кода через указаныый интервал</b> </p>
+        <li data-sourcepos="4:1-4:191">Что произойдет, если в функцию <code>setTimeout()</code> передать нулевую задержку? Сработает ли она мгновенно, и почему?</li>
+        <p><b>да, запустится сразу(таймер в браузере может замедляться по многим причинам:Перегружен процессор.Вкладка браузера в фоновом режиме.Работа ноутбука от аккумулятора.) потому что 0 интервал, для теста можно запустить две функции и проверить : setTimeout(()=>{console.log("with setTimeout")},0) console.log("without set setTimeout") </b> </p>
+        <li data-sourcepos="5:1-6:0">Почему важно не забывать вызывать функцию <code>clearInterval()</code>, когда ранее созданный цикл запуска вам уже не нужен?</li>
+        <p><b>Для того что бы отключить его</b> </p>
+    </ol>
+    <h2 data-sourcepos="7:1-7:17" dir="auto">
+        <a id="user-content-задание" class="anchor" href="#%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5" aria-hidden="true"></a>Задание</h2>
+    <p data-sourcepos="9:1-9:318" dir="auto">Реализовать программу, показывающую циклично разные картинки. Задача должна быть реализована на языке javascript, без использования фреймворков и сторонник библиотек (типа Jquery).</p>
+    <h4 data-sourcepos="11:1-11:49" dir="auto">
+        <a id="user-content-технические-требования" class="anchor" href="#%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" aria-hidden="true"></a>Технические требования:</h4>
+    <ul data-sourcepos="12:1-22:0" dir="auto">
+        <li data-sourcepos="12:1-12:87">В папке <code>banners</code> лежит HTML код и папка с картинками.</li>
+        <li data-sourcepos="13:1-13:129">При запуске программы на экране должна отображаться первая картинка.</li>
+        <li data-sourcepos="14:1-14:119">Через 3 секунды вместо нее должна быть показана вторая картинка.</li>
+        <li data-sourcepos="15:1-15:52">Еще через 3 секунды - третья.</li>
+        <li data-sourcepos="16:1-16:58">Еще через 3 секунды - четвертая.</li>
+        <li data-sourcepos="17:1-17:136">После того, как покажутся все картинки - этот цикл должен начаться заново.</li>
+        <li data-sourcepos="18:1-18:161">При запуске программы где-то на экране должна появиться кнопка с надписью <code>Прекратить</code>.</li>
+        <li data-sourcepos="19:1-19:241">По нажатию на кнопку <code>Прекратить</code> цикл завершается, на экране остается показанной та картинка, которая была там при нажатии кнопки.</li>
+        <li data-sourcepos="20:1-20:304">Рядом с кнопкой <code>Прекратить</code> должна быть кнопка <code>Возобновить показ</code>, при нажатии которой цикл продолжается с той картинки, которая в данный момент показана на экране.</li>
+        <li data-sourcepos="21:1-22:0">Разметку можно менять, добавлять нужные классы, id, атрибуты, теги.</li>
+    </ul>
+    <h4 data-sourcepos="23:1-23:91" dir="auto">
+        <a id="user-content-необязательное-задание-продвинутой-сложности" class="anchor" href="#%D0%BD%D0%B5%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%83%D1%82%D0%BE%D0%B9-%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8" aria-hidden="true"></a>Необязательное задание продвинутой сложности:</h4>
+    <ul data-sourcepos="24:1-26:0" dir="auto">
+        <li data-sourcepos="24:1-24:262">При запуске программы на экране должен быть таймер с секундами и миллисекундами, показывающий сколько осталось до показа следующей картинки.</li>
+        <li data-sourcepos="25:1-26:0">Делать скрытие картинки и показывание новой картинки постепенным (анимация fadeOut / fadeIn) в течение 0.5 секунды.</li>
+    </ul>
+    <h4 data-sourcepos="27:1-27:26" dir="auto">
+        <a id="user-content-литература" class="anchor" href="#%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0" aria-hidden="true"></a>Литература:</h4>
+    <ul data-sourcepos="28:1-28:81" dir="auto">
+        <li data-sourcepos="28:1-28:81"><a href="https://learn.javascript.ru/settimeout-setinterval" rel="nofollow noreferrer noopener" target="_blank">setTimeout и setInterval</a></li>
+    </ul>
+</div>
+<div class="images-wrapper">
+    <img src="./img/1.jpg" alt="image of game" class="image-to-show"/>
+    <img src="./img/2.jpg" alt="image of game" hidden class="image-to-show"/>
+    <img src="./img/3.JPG" alt="image of game" hidden class="image-to-show"/>
+    <img src="./img/4.png" alt="image of game" hidden class="image-to-show"/>
+</div>
+<span id="span">3.00</span>
+
+
+<script>
+    const allImg = document.querySelector(".images-wrapper")
+    const span = document.getElementById("span")
+
+    const buttonStop = document.createElement("button")
+    const buttonContinue = document.createElement("button")
+
+    const timer = 3000
+    let index = 0
+    let leftToNext = timer
+    let interval=creatInterval()
+
+    buttonStop.addEventListener("click", ()=>{
+        clearInterval(interval)
+    })
+
+    buttonContinue.addEventListener("click", ()=>{
+        interval=creatInterval()
+    })
+
+    buttonStop.id = "stop"
+    buttonStop.textContent = "Прекратить"
+    document.body.append(buttonStop)
+
+    buttonContinue.id = "continue"
+    buttonContinue.textContent = "Возобновить показ"
+    document.body.append(buttonContinue)
+
+    function showingPicture() {
+        allImg.children[index].hidden = true
+        index++
+        if (index === allImg.children.length) {
+            index = 0
+        }
+        allImg.children[index].hidden = false
+    }
+
+    function creatInterval() {
+        return setInterval(() => {
+            leftToNext -= 10
+            if (leftToNext <= 0) {
+                leftToNext = timer
+                showingPicture()
+            }
+            span.textContent=(leftToNext/1000).toFixed(3)
+        })
+    }
+    setTimeout(()=>{console.log("with setTimeout")},0)
+    console.log("without set setTimeout")
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabs</title>
+    <style>
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .centered-content {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tabs {
+            display: flex;
+        }
+
+        .tabs-title {
+            padding: 20px;
+            background-color: #23201D;
+            color: #937341;
+            cursor: pointer;
+        }
+
+        .tabs-title.active {
+            background-color: #937341;
+            color: #23201D;
+        }
+
+        #tabs .hide {
+            display: none;
+        }
+
+        #tabs .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<div class="centered-content">
+    <ul class="tabs">
+        <li class="tabs-title active">Akali</li>
+        <li class="tabs-title">Anivia</li>
+        <li class="tabs-title">Draven</li>
+        <li class="tabs-title">Garen</li>
+        <li class="tabs-title">Katarina</li>
+        <li class="tabs-title">Added</li>
+    </ul>
+    <ul class="tabs-content">
+        <!-- Akali -->
+        <li id="Akali">Abandoning the Kinkou Order and her title of the Fist of Shadow, Akali now strikes alone, ready
+            to be
+            the deadly weapon her people need. Though she holds onto all she learned from her master Shen, she has
+            pledged to defend Ionia from its enemies, one kill at a time. Akali may strike in silence, but her
+            message will be heard loud and clear: fear the assassin with no maste
+        </li>
+        <!-- Anivia -->
+        <li id="Anivia" hidden>Anivia is a benevolent winged spirit who endures endless cycles of life, death, and
+            rebirth to protect
+            the Freljord. A demigod born of unforgiving ice and bitter winds, she wields those elemental powers to
+            thwart any who dare disturb her homeland. Anivia guides and protects the tribes of the harsh north, who
+            revere her as a symbol of hope, and a portent of great change. She fights with every ounce of her
+            being, knowing that through her sacrifice, her memory will endure, and she will be reborn into a new
+            tomorrow.
+        </li>
+        <!--Draven -->
+        <li id="Draven" hidden>In Noxus, warriors known as reckoners face one another in arenas where blood is spilled
+            and strength
+            tested—but none has ever been as celebrated as Draven. A former soldier, he found that the crowds
+            uniquely appreciated his flair for the dramatic, not to mention the spray of blood from each of his
+            spinning axes. Addicted to the spectacle of his own brash perfection, Draven has sworn to defeat
+            whomever he must to ensure that his name is chanted throughout the empire forever more.
+        </li>
+        <!-- Garen -->
+        <li id="Garen" hidden>A proud and noble soldier, Garen fights at the head of the Dauntless Vanguard. He is
+            popular among his
+            fellows, and respected well enough by his enemies—not least as a scion of the prestigious Crownguard
+            family, entrusted with defending Demacia and its ideals. Clad in magic-resistant armor and bearing a
+            mighty broadsword, Garen stands ready to confront mages and sorcerers on the field of battle, in a
+            veritable whirlwind of righteous steel.
+        </li>
+        <!-- Katarina -->
+        <li id="Katarina" hidden>Decisive in judgment and lethal in combat, Katarina is a Noxian assassin of the highest
+            caliber. Eldest
+            daughter to the legendary General Du Couteau, she made her talents known with swift kills against
+            unsuspecting enemies. Her fiery ambition has driven her to pursue heavily-guarded targets, even at the
+            risk of endangering her allies—but no matter the mission, Katarina will not hesitate to execute her
+            duty amid a whirlwind of serrated daggers.
+        </li>
+
+        <li id="added" hidden>Нужно предусмотреть, что текст на вкладках может меняться, и что вкладки могут добавляться
+            и удаляться. При этом нужно, чтобы функция, написанная в джаваскрипте, из-за таких правок не переставала
+            работать.
+        </li>
+    </ul>
+</div>
+
+<div class="file-content md">
+    <h2 data-sourcepos="1:1-1:17" dir="auto">
+        <a id="user-content-задание" class="anchor" href="#%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5" aria-hidden="true"></a>Задание</h2>
+    <p data-sourcepos="3:1-3:103" dir="auto">Реализовать переключение вкладок (табы) на чистом Javascript.</p>
+    <h4 data-sourcepos="5:1-5:49" dir="auto">
+        <a id="user-content-технические-требования" class="anchor" href="#%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" aria-hidden="true"></a>Технические требования:</h4>
+    <ul data-sourcepos="6:1-9:0" dir="auto">
+        <li data-sourcepos="6:1-6:446">В папке <code>tabs</code> лежит разметка для вкладок. Нужно, чтобы по нажатию на вкладку отображался конкретный текст для нужной вкладки. При этом остальной текст должен быть скрыт. В комментариях указано, какой текст должен отображаться для какой вкладки.</li>
+        <li data-sourcepos="7:1-7:121">Разметку можно менять, добавлять нужные классы, id, атрибуты, теги.</li>
+        <li data-sourcepos="8:1-9:0">Нужно предусмотреть, что текст на вкладках может меняться, и что вкладки могут добавляться и удаляться. При этом нужно, чтобы функция, написанная в джаваскрипте, из-за таких правок не переставала работать.</li>
+    </ul>
+    <h4 data-sourcepos="10:1-10:26" dir="auto">
+        <a id="user-content-литература" class="anchor" href="#%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0" aria-hidden="true"></a>Литература:</h4>
+    <ul data-sourcepos="11:1-11:90" dir="auto">
+        <li data-sourcepos="11:1-11:90"><a href="https://developer.mozilla.org/ru/docs/Web/API/HTMLElement/dataset" rel="nofollow noreferrer noopener" target="_blank">HTMLElement.dataset</a></li>
+    </ul>
+</div>
+<script>
+    const allTabs = [...document.querySelectorAll(".tabs-title")]
+    const allText = document.querySelectorAll(".tabs-content li")
+    console.log(allText)
+    allTabs.forEach(element => {
+            console.log(element)
+            element.addEventListener("click", toggle)
+        }
+    )
+
+    function toggle(event) {
+        console.log(event)
+        console.log(event.target)
+        event.target.closest("ul").querySelector(".active").classList.remove("active")
+        event.target.classList.add("active")
+        const indexOfActiveTab = allTabs.findIndex(elem => elem.classList.contains("active"))
+        showText(indexOfActiveTab)
+        console.log("index,который показывает какой элемент массива соответствует критерию contains(active) " + index)
+    }
+    function showText(item) {
+
+        allText.forEach(elem => {
+            elem.setAttribute("hidden", "true")
+        })
+        console.log(allText[item])
+        allText[item].removeAttribute("hidden")
+    }
+
+</script>
+</body>
+
+</html>
