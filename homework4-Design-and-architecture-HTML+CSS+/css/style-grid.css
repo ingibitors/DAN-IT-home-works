@@ -1,0 +1,14 @@
+.grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 3vw;
+    background: url("../img/background-cloe.svg");
+    height: 588px;
+}
+
+.grid > div {
+    font-size: 4vw;
+    padding: .1em;
+    text-align: center;
+}
