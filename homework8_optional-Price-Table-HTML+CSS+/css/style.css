@@ -1,0 +1,148 @@
+@font-face{
+    font-family: 'arimo', sans-serif;
+    src: url('//fonts/arimo.eot');
+    url('//fonts/arimo.eot?#iefix') format('embedded-opentype');
+    url('..//fonts/arimo.woff') format('woff');
+    url(../fonts/arimo.ttf) format('truetype');
+    url('arimo.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'arimo-bold', sans-serif;
+    src: url('//fonts/arimo-bold.eot');
+    src: url('//fonts/arimo-bold.eot?#iefix') format('embedded-opentype');
+    url('arimo.woff') format('woff');
+    src: url(../fonts/arimo.ttf) format('truetype');
+    url('arimo.svg') format('svg');
+    src: url(../fonts/arimo-bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'arimo', sans-serif;
+    box-sizing: border-box;
+}
+.wrapper {
+    background-color: #3a4965;
+    width: 1192px;
+    height: 736px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table {
+    margin: 0 auto;
+    background-color: #fff;
+    border-collapse: collapse;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 16px;
+    color: #484848;
+}
+td {
+    width: 277px;
+    height: 69px;
+}
+.first-row {
+    width: 310px;
+}
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+.head-line {
+    font-size: 18px;
+    font-weight: bold;
+}
+.price {
+    font-size: 60px;
+    font-weight: bold;
+    margin-left: 33px;
+}
+i {
+    margin-right: 12px;
+    font-size: 24px;
+}
+.std {
+    background-color: #89c331;
+}
+.ult {
+    background-color: #f04a56;
+}
+.prem {
+    background-color: #20807c;
+}
+.decimal. .low {
+    vertical-align: 0;
+}
+.decimal {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    top:-19px;
+}
+.low {
+    font-size: 18px;
+    position: relative;
+    bottom:4px;
+    right: 30px;
+}
+tbody tr:nth-child(odd) {
+    background: #f2f2f2;
+}
+tbody tr:nth-child(even) {
+    background: #e3e3e3;
+}
+.btn {
+    width: 192px;
+    height: 49px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.grey {
+    background-color: #484848;
+    border: 1px solid #484848;
+    box-shadow: 0 6px 0 #404040;
+}
+.green {
+    background-color: #89c331;
+    border: 1px solid #89c331;
+    box-shadow: 0 6px 0 #79b027;
+}
+.red {
+    background-color: #f04a56;
+    border: 1px solid #f04a56;
+    box-shadow: 0 6px 0 #df3a46;
+}
+.blue {
+    background-color: #20807c;
+    border: 1px solid #20807c;
+    box-shadow: 0 6px 0 #16736f;
+}
+tfoot td {
+    height: 100px;
+}
+tfoot td:first-child {
+     background-color: #dddddd;
+ }
+tfoot td:nth-child(2n) {
+    background-color: #eeeeee;
+}
+tfoot td:nth-child(3) {
+    background-color: #f4f4f4;
+}
+ .line {
+    border-left: 3px solid #e0e0e0;
+}

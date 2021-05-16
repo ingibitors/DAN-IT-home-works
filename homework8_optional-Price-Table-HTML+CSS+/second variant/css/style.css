@@ -1,0 +1,132 @@
+@font-face{
+    font-family: 'arimo', sans-serif;
+    src: url('//fonts/arimo.eot');
+url('//fonts/arimo.eot?#iefix') format('embedded-opentype');
+url('..//fonts/arimo.woff') format('woff');
+url(../fonts/arimo.ttf) format('truetype');
+url('arimo.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'arimo-bold', sans-serif;
+    src: url('//fonts/arimo-bold.eot');
+    src: url('//fonts/arimo-bold.eot?#iefix') format('embedded-opentype');
+url('arimo.woff') format('woff');
+    src: url(../../fonts/arimo.ttf) format('truetype');
+url('arimo.svg') format('svg');
+    src: url(../../fonts/arimo-bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'arimo', sans-serif;
+    box-sizing: border-box;
+}
+.wrapper {
+    background-color: #3a4965;
+    width: 1197px;
+    height: 660px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table {
+    margin: 0 auto;
+    background-color: #fff;
+    border-collapse: collapse;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 16px;
+    color: #484848;
+}
+td {
+    width: 157px;
+    height: 166px;
+    line-height: 24px;
+}
+.first-row {
+    width: 198px;
+}
+th {
+    height: 112px;
+    line-height: 24px;
+    border-bottom: 2px solid #cacaca;
+}
+th:nth-child(even) {
+    background-color: #e3e3e3;
+}
+td:nth-child(even) {
+    background-color: #e3e3e3;
+}
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    margin-top: -12px;
+    color: #fff;
+}
+.head-line {
+    font-size: 14px;
+    font-weight: bold;
+    top: -15px;
+}
+.price {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+}
+i {
+    font-size: 24px;
+}
+.std {
+    background-color: #89c331;
+}
+.ult {
+    background-color: #f04a56;
+}
+.prem {
+    background-color: #20807c;
+}
+.decimal {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: -12px;
+    color: #fff;
+}
+.low {
+    font-size: 14px;
+    vertical-align: text-bottom;
+    color: #fff;
+    margin-left: 8px;
+}
+.btn {
+    width: 144px;
+    height: 41px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 6px 0 #343434;
+    border: 1px solid #414141 ;
+    background-color: #414141;
+    padding-top: 15px;
+    margin-top: 13px;
+    font-weight: bold;
+}
+.line {
+    border-left: 3px solid #e0e0e0;
+}
+.under-line {
+    border-bottom: 2px solid #cacaca;
+}
