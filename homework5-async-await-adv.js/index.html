@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Я тебя по айпи вычислю</title>
+</head>
+<body>
+<button id="findIp">Вычислить по IP</button>
+<div id="root">
+</div>
+<!--Обьясните своими словами, как вы понимаете асинхронность в Javascript-->
+//асинхронность- это последовательное выполнение комманд. т.е работа с сервером идет поочередно.
+<!--Написать программу "Я тебя по айпи вычислю"
+Технические требования:
+Создать простую HTML страницу с кнопкой Вычислить по IP.
+По нажатию на кнопку - отправить AJAX запрос по адресу https://api.ipify.org/?format=json, получить оттуда IP адрес клиента.
+Узнав IP адрес, отправить запрос на сервис https://ip-api.com/ и получить информацию о физическом адресе.
+Под кнопкой вывести на страницу информацию, полученную из последнего запроса - континент, страна, регион, город, район города.
+Все запросы на сервер необходимо выполнить с помощью async await.-->
+<script>
+  const button = document.getElementById("findIp");
+  const urlForGettingIp = "https://api.ipify.org/?format=json"
+  const urlForGettingAdressFromIp = "https://ip-api.com"
+  button.addEventListener('click', async function (e) {
+    let ipReceivedFromUrl = await getIPFromUrl(urlForGettingIp)
+    console.log(ipReceivedFromUrl)//получаем ip в объекте, поэтому и нужно получить строку ниже
+    let ipTextFromObject = ipReceivedFromUrl.ip
+    //получаем адрес
+    let adress = await getAdressFromIp(urlForGettingAdressFromIp, ipTextFromObject)
+    //отрисовуем то что получили
+    let render = await renderData(adress)
+    /*console.log(render)*/
+  })
+  //функция получения IP по адресу
+  async function getIPFromUrl(url) {
+    const response = await fetch(url)
+    /*console.log(response)*/
+    const responseData = await response.json()
+    /*console.log(responseData)*/
+    return responseData
+  }
+  //получаем адрес по двум параметрам- IP и url API
+  async function getAdressFromIp(url, ip) {
+    const request = await fetch(`http://ip-api.com/json/${ip}?fields=continent,country,regionName,city,district`)
+    /*console.log(request)*/
+    const detailedParameters = await request.json()
+    /*console.log(detailedParameters)*/
+    return detailedParameters
+  }
+  //функция отрисовки
+  //на входе объект- поэтому используем for in
+  async function renderData(object) {
+    for (let key in object) {
+      const ul = document.createElement("ul")
+      const li = document.createElement("li")
+      li.innerHTML = key + ": " + object[key]
+      ul.append(li)
+      root.append(ul)
+    }
+  }
+
+</script>
+</body>
+</html>
