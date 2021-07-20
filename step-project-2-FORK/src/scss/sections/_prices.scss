@@ -1,0 +1,130 @@
+.prices_section__title {
+  text-align: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF;
+  padding-bottom: 112px;
+  padding-top: 83px;
+}
+.prices__section {
+   background-color: #4A3B4E;
+}
+
+.pricing__Plans {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name__Plan {
+  width: 257px;
+  height: 97px;
+  background: #685B6A;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.price__Plan {
+  width: 257px;
+  height: 57px;
+  margin-top: 30px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 60px;
+}
+
+.period__Plan {
+  width: 257px;
+  height: 18px;
+  margin-top: 20px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.condition > hr {
+  width: 60px;
+  height: 5px;
+  background-color: #8D81AC;
+}
+
+.type__License {
+  width: 257px;
+  height: 13px;
+  margin-top: 30px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.purchase__Button {
+  width: 163px;
+  height: 45px;
+  font-size: 15px;
+  background: #776B79;
+  border-radius: 40px;
+  border: 0px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 37px;
+}
+
+.purchase__Button > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.condition {
+  background: #5F5161;
+  width: 257px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .prices_section__wrapper {
+    display: grid;
+    grid-template-rows: 23% 23% 23% 23%;
+    grid-gap: 2%;
+    justify-content: center;
+  }
+}
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  .prices_section__wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-gap: 40px;
+    justify-content: center;
+    padding-bottom: 149px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .prices_section__wrapper {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-gap: 40px;
+    justify-content: center;
+    padding-bottom: 149px;
+  }
+}

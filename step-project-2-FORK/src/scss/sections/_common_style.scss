@@ -1,0 +1,37 @@
+html {
+  font-family: Lato;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 100%;
+  /*max-width: 1200px;*/
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: auto;
+}
+h2 {
+  font-size: 16px;
+}
+
+main {
+  /* max-width: 320px;*/
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1, h3 {
+  text-align: center;
+}
+img {
+  justify-content: center;
+}

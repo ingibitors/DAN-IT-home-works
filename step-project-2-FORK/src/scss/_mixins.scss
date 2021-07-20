@@ -1,0 +1,26 @@
+@mixin flex {
+  display: flex;
+  flex-direction: row;
+}
+@mixin center {
+  text-align: center;
+}
+@mixin space-between{
+  @include flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin space-around{
+  @include flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@mixin margin-about-us{
+  margin-bottom: $margin-bottom-about-us-big;
+  margin-top: $margin-top-about-us-big;
+}
