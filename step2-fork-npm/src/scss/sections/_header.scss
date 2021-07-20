@@ -1,0 +1,254 @@
+header {
+  /*display: flex;
+  justify-content: space-between;*/
+  background-color: #27262A;
+  min-height: 130px;
+
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 34px;
+}
+
+.logo {
+  text-decoration: none;
+  color: #8D81AC;
+  font-size: 24px;
+}
+
+button, a {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+  font-size: 16px;
+}
+
+.main-menu {
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  margin-bottom: 0px;
+}
+
+.main-menu-item {
+  /*margin: 10px 20px;*/
+  margin-bottom: 0px;
+
+}
+
+.main-menu-link {
+  margin: 0px 20px;
+
+  text-decoration: none;
+  color: #8D81AC;
+}
+
+.action__Buy {
+  width: 119px;
+  height: 37px;
+  font-size: 15px;
+  /*left: 0px;
+  top: 0px;*/
+  background: #8D81AC;
+  border-radius: 40px;
+  border: 0px;
+  /*padding: 14px 28px;*/
+}
+
+#hamburger {
+  --thickness: 3px;
+  border: none;
+  background: transparent;
+}
+
+#hamburger span,
+#hamburger span::after,
+#hamburger span::before {
+  display: inline-block;
+  /*width: 30px;*/
+  height: var(--thickness);
+  background: white;
+}
+
+.test {
+  color: yellow;
+}
+
+#hamburger span::after,
+#hamburger span::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  /*top:0;
+  transform: rotate(87deg);набор изменений для крестика*/
+
+}
+
+#hamburger span {
+  position: relative;
+  width: 26px;
+}
+
+#hamburger span::before {
+  /*top: -6px;*/
+  width: 18px;
+  transform: rotate(-45deg);
+  top: 0;
+  /*width: 26px;//набор изменений для крестика*/
+}
+
+#hamburger span::after {
+  /*top:0;*/
+  bottom: -6px;
+  width: 26px;
+  transform: rotate(45deg)
+}
+
+
+#hamburger-button{
+  width: 50px;
+  height: 45px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#hamburger-button span{
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 50%;
+  background: white;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+
+/* Icon 3 */
+
+#hamburger-button span:nth-child(1) {
+  top: 0px;
+  width: 18px;
+  margin-left: 8px;
+}
+
+#hamburger-button span:nth-child(2),#hamburger-button span:nth-child(3) {
+  top: 18px;
+  width: 26px;
+}
+
+#hamburger-button span:nth-child(4) {
+  top: 36px;
+  width: 26px;
+}
+
+#hamburger-button.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#hamburger-button.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#hamburger-button.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#hamburger-button.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .logo__text {
+    display: none;
+    margin: auto;
+  }
+  .main-nav {
+    position: absolute;
+    right: 5px;
+    top: 130px;
+    width: 91%;
+    height: 352px;
+    background: #333333;
+  }
+  .main-menu-item {
+    display: flex;
+    background: #333333;
+    height: 88px;
+    border-top: 1px solid #3B3B3B;
+  }
+  .main_nav_768_1199px {
+    display: none;
+  }
+  .main-menu-item > a {
+    color: #FFFFFF;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 26px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 26px;
+  }
+  .main-nav:target {
+    transform: translateX(6%);
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .main-menu {
+    display: flex;
+  }
+  .main_nav_768_1199px {
+    text-align: center;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  #hamburger-button {
+    display: none;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header {
+    background-color: black;
+  }
+  .main-menu {
+    display: flex;
+  }
+  .main_nav_768_1199px {
+    display: none;
+  }
+  #hamburger-button {
+    display: none;
+  }
+}

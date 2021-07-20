@@ -1,0 +1,33 @@
+.fork_app_section {
+  background-image: url("../../img/background-cover-1380px.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 614px;
+  font-family: Montserrat, serif;
+}
+.container-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fork_app_section__slogan {
+  font-size: 18px;
+  color: #8D81AC;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.fork_app_section__version{
+  color: #848E97;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.brand__name {
+  color: white;
+  font-size: 48px;
+  margin-top: 50px;
+  margin-bottom: 19px;
+}

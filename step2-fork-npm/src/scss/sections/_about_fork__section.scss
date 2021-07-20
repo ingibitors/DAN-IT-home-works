@@ -1,0 +1,92 @@
+.about_fork__section {
+  background-image: url("../../img/testmonials-bg 1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about_fork__title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  padding-bottom: 112px;
+  color: white;
+  padding-top: 108px;
+}
+.about_fork__list {
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+}
+.about_fork_item__image{
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 33px;
+}
+.about_fork_item__text{
+  text-align: center;
+  color: white;
+  width: 80%;
+}
+hr {
+  background-color: #645766;
+  height: 2px;
+  width: 75%;
+  margin-top: 22px;
+  margin-bottom: 0;
+
+}
+.about_fork__footer {
+  text-align: center;
+  align-items: center;
+  color: #A291A5;
+  width: 65%;
+  font-size: 14px;
+  margin: auto;
+  padding-top: 118px;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .about_fork__title {
+    padding-bottom: 53px;
+  }
+}
+
+.about_fork__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .about_fork__list{
+    display: grid;
+    grid-template-rows: 15% 15% 15% 15% 15% 15%;
+    row-gap: 45px;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .about_fork__list{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30% 30% 30%;
+    row-gap: 5%;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .about_fork__list {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 47% 47%;
+    row-gap: 5%;
+    align-items: center;
+    column-gap: 5%;
+  }
+}
+

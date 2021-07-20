@@ -23,8 +23,8 @@
     async function makerRequest() {
       const response = await fetch("https://swapi.dev/api/films/")
       const data = await response.json()
-      /*console.log("data:")
-      console.log(data)*/
+      console.log("data:")
+      console.log(data)
       //выбираем с объекта только массив с значениями results
       const {results} = data
       results.forEach(film => {
