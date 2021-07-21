@@ -1,8 +1,6 @@
 .idea/
 *.iml
 node_modules/**/*
-gulpfile-old.js
-package-old.json
 .xml
 package-lock.json
 .publish/
